@@ -1,26 +1,12 @@
 import back from '../images/back.jpg';
-import react from '../images/react.svg';
-import angular from '../images/angular.svg';
+import images from './card_images';
 
-export default [
-    {
+// export default images.map(front => ({front, back, flipped: false}));
+
+export default images.map( (front, index) => {
+    return {
         back: back,
-        flipped: false,
-        front: react
-    },
-    {
-        back: back,
-        flipped: false,
-        front: react
-    },
-    {
-        back: back,
-        flipped: false,
-        front: angular
-    },
-    {
-        back: back,
-        flipped: false,
-        front: angular
+        front: front,
+        flipped: false
     }
-]
+})
