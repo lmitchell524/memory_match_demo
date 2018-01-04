@@ -3,6 +3,7 @@
     height: 23vh;
     position: relative;
     display: inline-block;
+    margin: auto;
 }
 
 .front, .back {
@@ -23,10 +24,10 @@
 }
 
 .front {
-    border: 1px solid deepskyblue;
+    border: 1px solid black;
     border-radius: 18px;
     display: flex;
     width: 98%;
-    height: 83%;
+    height: 100%;
     background-color: black;
 }
