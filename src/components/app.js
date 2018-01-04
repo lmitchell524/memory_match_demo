@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../assets/css/app.css';
 import cardData from '../assets/helpers/card_data';
 import Card from './card';
+import { doubleArray, shuffleArray } from '../assets/helpers';
 
 class App extends Component {
     constructor(props){
@@ -9,7 +10,7 @@ class App extends Component {
 
         this.state = {
             firstCardIndex: null,
-            cards: cardData,
+            cards: [],
             matches: 0,
             attempts: 0,
             gameState: 'ready'
@@ -17,6 +18,12 @@ class App extends Component {
 
         this.flipCard = this.flipCard.bind(this);
         this.blockClick = false;
+    }
+
+    componentDidMount(){
+        this.setState({
+            cards: shuffleArray(doubleArray(cardData))
+        });
     }
 
     handleCardClicked(index){
@@ -29,8 +36,6 @@ class App extends Component {
         let gameState = this.state.gameState;
 
         if(firstCardIndex === null){
-            console.log("first card clicked");
-
             cardIndex = index;
 
             this.flipCard(index);
@@ -38,17 +43,14 @@ class App extends Component {
         } else {
             this.blockClick = true;
             attempts++;
-            console.log("second card clicked");
             const card1 = cards[firstCardIndex].front;
             const card2 = cards[index].front;
             this.flipCard(index);
 
             if(card1 === card2){
-                console.log("match!");
                 matches++;
 
                 if(matches === cards.length/2){
-                    console.log('game won!');
                     gameState = 'won';
                 }
 
