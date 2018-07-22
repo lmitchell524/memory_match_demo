@@ -84,7 +84,6 @@ class App extends Component {
         this.setState({
             cards: newCards
         });
-
     }
 
     render(){

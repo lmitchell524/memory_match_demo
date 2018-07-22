@@ -3,7 +3,7 @@ import '../assets/css/card.css';
 
 export default props => {
 
-    const{ flip, card: {front, back, flipped} } = props;
+    const { flip, card: {front, back, flipped} } = props;
 
     return(
         <div className="card-container">
